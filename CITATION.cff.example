@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite the archived software version and accompanying study."
+title: "Bioinspired attention transfer evaluation"
+type: software
+version: 0.1.0
+authors:
+  - family-names: "REPLACE_WITH_VERIFIED_FAMILY_NAME"
+    given-names: "REPLACE_WITH_VERIFIED_GIVEN_NAMES"
+repository-code: "REPLACE_WITH_ACTUAL_GITHUB_REPOSITORY_URL"
+license: "REPLACE_WITH_CONFIRMED_SPDX_LICENSE"
+# Add date-released and doi only after the actual archive exists.

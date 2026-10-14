@@ -1,0 +1,5 @@
+{
+  "source": "TorchVision EfficientNet-B0 IMAGENET1K_V1",
+  "sha256": "7f5810bc96def8f7552d5b7e68d53c4786f81167d28291b21c0d90e1fca14934",
+  "weights_included": false
+}

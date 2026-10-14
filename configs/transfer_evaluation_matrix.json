@@ -1,0 +1,37 @@
+[
+  {
+    "prior_formulation": "Center-surround saliency [6]; ON/OFF classifiers [8]",
+    "implementation_difference": "N3: normalized contrast per channel, then multiplicative feature gating; no ON/OFF residual paths.",
+    "hypothesis_and_control": "Contrast should improve referral beyond generic attention; test subtraction and a recurrent attention-budget control.",
+    "observed_evidence": "N2 minus no-subtraction: +0.43 pp. N3 minus budget generic: −0.57 pp [−2.43, 1.14]; AUROC +0.0018 [−0.0011, 0.0049].",
+    "attribution_limit_and_next_test": "Recurrent support/nonlinearity differ. P1 conditional: compare stage and representation; redundancy unproven."
+  },
+  {
+    "prior_formulation": "Multiscale saliency [6]; retinal spatial context [31]",
+    "implementation_difference": "Finite Gaussian supports; bounded scale multipliers shared across channels per modality.",
+    "hypothesis_and_control": "Scale diversity should improve referral; repeat one scale, vary σ and insertion stride.",
+    "observed_evidence": "N2 three scales minus repeated scale: +0.86 pp. N2 stride-4/8/16: 80.97/80.26/80.83%, all below M0R. No lesion-scale measurements.",
+    "attribution_limit_and_next_test": "Depth changes semantics and support. P2 future test: measure training-only lesion sizes and match support."
+  },
+  {
+    "prior_formulation": "Divisive normalization [7]; learned V1 normalization [10]",
+    "implementation_difference": "Feature-variance denominator with bounded ρ/ε, trained for classification rather than spike responses.",
+    "hypothesis_and_control": "Adaptive gain should add referral value; frozen interventions, retraining and jointly fixed N3 coefficients.",
+    "observed_evidence": "N2 minus global-only/raw: +0.14/+0.29 pp. N3 minus fixed: −0.14 pp [−1.86, 1.57]; AUROC +0.0013.",
+    "attribution_limit_and_next_test": "Joint fixing does not isolate coefficients. P3 conditional: distinguish fitted-model sensitivity from learning."
+  },
+  {
+    "prior_formulation": "ON/OFF receptive-field processing [8]",
+    "implementation_difference": "Static signed rectification; channel-specific scale mixers instead of separate cellular populations.",
+    "hypothesis_and_control": "Signed responses should outperform sign-invariant bases at the same attention budget.",
+    "observed_evidence": "N3 minus magnitude basis: CFP −0.72 pp [−2.58, 1.14]; AUROC +0.0035 [0.0008, 0.0068]. UWF −0.06 pp [−0.64, 0.53].",
+    "attribution_limit_and_next_test": "Magnitude and magnitude² alter nonlinear statistics. P4 hypothesis; temporal physiology untested."
+  },
+  {
+    "prior_formulation": "Channel/spatial selection in CBAM [17]",
+    "implementation_difference": "Keep normalized channel responses; late-pooling control averages after filtering and broadcasts back.",
+    "hypothesis_and_control": "Channel retention should improve referral independently of filtering cost.",
+    "observed_evidence": "N3 minus late pooling: CFP −0.14 pp [−2.00, 1.72]; AUROC +0.0027 [0.0005, 0.0053]. UWF −0.06 pp [−0.59, 0.47].",
+    "attribution_limit_and_next_test": "Statistics and mixing change together. P4 hypothesis; P5 conditional: assess ranking and the joint decision rule."
+  }
+]

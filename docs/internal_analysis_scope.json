@@ -1,0 +1,23 @@
+{
+  "completed_training_executions_in_manuscript": 96,
+  "comparisons": 27,
+  "effect_interval_rows": 864,
+  "bootstrap_replicates": 2000,
+  "source_prediction_files": 180,
+  "locally_replayed_files": 156,
+  "additional_server_component_files": 24,
+  "independent_local_original_component_resampling": false,
+  "independent_local_budget_control_resampling": true,
+  "identical_shared_baseline_rows": 64,
+  "analysis_script_sha256": "0bdc0ac6c88721ab851e4d922cc2825461964827500dbc56e283248aba6420b8",
+  "interpretation_limits": [
+    "Image exchangeability assumed; patient dependence unresolved",
+    "No retraining uncertainty or seed resampling",
+    "No correction for checkpoint/threshold selection on the same images",
+    "No equivalence or biological-failure conclusion from zero crossing"
+  ],
+  "patient_independence_verified": false,
+  "new_budget_controls_completed": true,
+  "new_budget_training_executions": 9,
+  "new_weight_binaries_returned": false
+}

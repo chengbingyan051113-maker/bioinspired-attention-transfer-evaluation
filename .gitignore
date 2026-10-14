@@ -1,0 +1,11 @@
+data/
+outputs/
+results/
+*.pt
+*.pth
+*.tar.gz
+*.csv
+!aggregate_internal_effects.csv
+__pycache__/
+*.pyc
+.env

@@ -1,0 +1,33 @@
+{
+  "analysis": "Post hoc external ROC comparison",
+  "prediction_files_checked": 48,
+  "model_seed_combinations": 48,
+  "cohorts": [
+    "DeepDRiD CFP",
+    "DeepDRiD UWF",
+    "Messidor-2 CFP",
+    "EyePACS CFP"
+  ],
+  "optimization_seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "target_specificity": 0.9,
+  "max_fpr": 0.1,
+  "point_estimates_recomputed_on": "2026-10-14",
+  "raw_pauc": "Empirical piecewise-linear ROC integral over FPR 0 to 0.10",
+  "standardized_pauc": "McClish correction; diagonal 0.5, perfect discrimination 1",
+  "probability_ensembling": false,
+  "public_files": "Aggregate estimates and analysis code; individual predictions are excluded",
+  "validation_scope": "NumPy point estimates and CPU tests; no repeated GPU inference or training",
+  "bootstrap_intervals_rerun_on_20261014": false,
+  "limitations": [
+    "Cutoffs are estimated on the evaluated external labels",
+    "Empirical specificity is not a population guarantee",
+    "Released units do not establish development/external patient independence",
+    "Fixed-seed resampling omits retraining and model-selection uncertainty"
+  ],
+  "public_implementation_point_regression_max_absolute_error": 1.1102230246251565e-16,
+  "public_implementation_fitted_models_checked": 48
+}

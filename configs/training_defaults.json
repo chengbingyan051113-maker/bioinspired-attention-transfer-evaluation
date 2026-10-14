@@ -1,0 +1,52 @@
+{
+  "seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "image_size": 384,
+  "batch_size_per_modality": 16,
+  "num_workers": 4,
+  "epochs_max": 25,
+  "early_stopping_patience": 5,
+  "dtype": "FP32",
+  "validation_dtype": "FP32",
+  "optimizer": "AdamW",
+  "encoder_lr": 2e-05,
+  "head_and_attention_lr": 0.0003,
+  "weight_decay": 0.0001,
+  "scheduler": "CosineAnnealingLR",
+  "scheduler_T_max": 25,
+  "label_smoothing": 0.05,
+  "lesion_loss_weight": 0.3,
+  "grade2_multiplier": 1.0,
+  "gradient_clip_norm": 5.0,
+  "modalities_per_step": "consume independent CFP/UWF loaders once each per epoch; mean over remaining modalities; no oversampling, pairing or alignment",
+  "epoch_seed_rule": "optimization_seed + epoch * 1000; worker/shuffle seed adds 10 for UWF; nonpersistent workers",
+  "augmentation": "unchanged vendor Stage25E Resize BICUBIC 384, horizontal flip .5, ColorJitter .10/.10/.08/.02, ImageNet normalization",
+  "best_epoch_selection": [
+    "CFP grade2 sensitivity at specificity >= .90",
+    "CFP referable sensitivity at specificity >= .90",
+    "CFP referable AUC"
+  ],
+  "threshold_priority_CFP": [
+    "grade2 sensitivity",
+    "referable sensitivity",
+    "specificity",
+    "higher threshold"
+  ],
+  "exact_epoch_ties": "keep earlier epoch",
+  "minimum_specificity": 0.9,
+  "uwf_used_for_selection": false,
+  "resume_unit": "completed epoch; interrupted epoch restarts from previous committed epoch",
+  "trial_order": "For each seed, four controls in declared order; GPU0 seed2026; GPU1 seed2027 then seed2028. Reuse frozen reference metadata only.",
+  "physical_gpus": [
+    0,
+    1
+  ],
+  "seed_gpu_assignment": {
+    "2026": 0,
+    "2027": 1,
+    "2028": 1
+  }
+}
